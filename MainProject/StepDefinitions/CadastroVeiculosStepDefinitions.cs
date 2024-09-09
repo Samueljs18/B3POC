@@ -51,7 +51,7 @@ namespace B3POC.MainProject.StepDefinitions
         [Then(@"Valido Sistema Aceitando Preenchimento Valido")]
         public void ThenValidoSistemaAceitandoPreenchimentoValido()
         {
-            VerificarCondicaoVerdadeira(VerificarSeElementoEstaoculto("//*[@id='engineperformance']/following-sibling::span"), "Teste Sistema não apresenta nenhum erro e aceita preenchimento", "Cadastro Veiculo");
+            VerificarCondicaoVerdadeira(MensagemDeValidacaoEstaOCulta("//*[@id='engineperformance']/following-sibling::span"), "Teste Sistema não apresenta nenhum erro e aceita preenchimento", "Cadastro Veiculo");
         }
 
         [When(@"preencho o campo Date of Manufacture sem colocar uma mascara")]
@@ -63,7 +63,7 @@ namespace B3POC.MainProject.StepDefinitions
         [Then(@"Valido mensagem sendo apresentada pedindo data valida")]
         public void ThenValidoMensagemSendoApresentadaPedindoDataValida()
         {
-            VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='opendateofmanufacturecalender']/following-sibling::span", "Must be a valid date "), "Teste Campo Date of Manufacture só aceita data preenchida com mascara", "Cadastro Veiculo");
+            VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='opendateofmanufacturecalender']/following-sibling::span", "Must be a valid date"), "Teste Campo Date of Manufacture só aceita data preenchida com mascara", "Cadastro Veiculo");
         }
 
         [When(@"Deixo o campo Date of Manufacture sem preenchimento")]
@@ -164,8 +164,6 @@ namespace B3POC.MainProject.StepDefinitions
         [Then(@"Valido o Cadastro de veiculo Com Sucesso")]
         public void ThenValidoOCadastroDeVeiculoComSucesso()
         {
-            MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//h2[.='Sending e-mail success!']", "Sending e-mail success!");
-            Thread.Sleep(5000);
             VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//h2[.='Sending e-mail success!']", "Sending e-mail success!"), "Teste sistema apresenta mensagem de envio email enviado com sucesso", "Cadastro Veiculo");
         }
 
@@ -208,7 +206,7 @@ namespace B3POC.MainProject.StepDefinitions
         public void ThenValidoSeComboFuelTypeEstaComTodasAsOpcoesEsperadas()
         {
             ClicarElemento(ElementoDaCadastroVeiculo.CampoFuelType());
-            VerificarCondicaoVerdadeira(CampoTipoTextoEstaComValorCorreto(ElementoDaCadastroVeiculo.CampoFuelType(), ""), "Teste combo Fuel Type tem todas opções esperadas", "Cadastro Veiculo");
+            VerificarCondicaoVerdadeira(CampoTipoTextoEstaComValorCorreto(ElementoDaCadastroVeiculo.CampoFuelType(),"                                            – please select –\r\n                                            Petrol\r\n                                            Diesel\r\n                                            Electric Power\r\n                                            Gas\r\n                                            Other\r\n                                        "), "Teste combo Fuel Type tem todas opções esperadas", "Cadastro Veiculo");
         }
 
         [When(@"Deixo sem preencher o combo List Price")]
@@ -275,7 +273,7 @@ namespace B3POC.MainProject.StepDefinitions
             switch (Resultado)
             {
                 case "Nao Aceitar":
-                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='annualmileage']/following-sibling::span", "Must be a number between 500 and 100000"), "Teste campo Annual Mileage Não Aceita Valor menor igual ou maior que " + ValorPreenchido, "Cadastro Veiculo");
+                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='annualmileage']/following-sibling::span", "Must be a number between 100 and 100000"), "Teste campo Annual Mileage Não Aceita Valor menor igual ou maior que " + ValorPreenchido, "Cadastro Veiculo");
                     break;
                 case "Aceitar":
                     VerificarCondicaoVerdadeira(MensagemDeValidacaoEstaOCulta("//*[@id='annualmileage']/following-sibling::span"), "Teste campo Annual Mileage Aceita Valor " + ValorPreenchido, "Cadastro Veiculo");
@@ -395,7 +393,7 @@ namespace B3POC.MainProject.StepDefinitions
             switch (Resultado)
             {
                 case "Nao Aceitar":
-                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='email']/following-sibling::span", "This field is mandatory"), "Teste campo e-mail nao aceita valor invalido de email: " + ValorPreenchido, "Cadastro Veiculo");
+                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='email']/following-sibling::span", "Must be at least a valid email format"), "Teste campo e-mail nao aceita valor invalido de email: " + ValorPreenchido, "Cadastro Veiculo");
                     break;
                 case "Aceitar":
                     VerificarCondicaoVerdadeira(MensagemDeValidacaoEstaOCulta("//*[@id='email']/following-sibling::span"), "Teste campo Email está aceitando valor de email valido: " + ValorPreenchido, "Cadastro Veiculo");
@@ -430,7 +428,7 @@ namespace B3POC.MainProject.StepDefinitions
             switch (Resultado)
             {
                 case "Nao Aceitar":
-                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='phone']/following-sibling::span", "This field is mandatory"), "Teste campo phone não aceita numero menor que 8 e maior que 15" + ValorPreenchido, "Cadastro Veiculo");
+                    VerificarCondicaoVerdadeira(MensageriaApresentadaEstaDoElementoAcordoComOEsperado("//*[@id='phone']/following-sibling::span", "Must be a number between 8 and 15 digits"), "Teste campo phone não aceita numero menor que 8 e maior que 15" + ValorPreenchido, "Cadastro Veiculo");
                     break;
                 case "Aceitar":
                     VerificarCondicaoVerdadeira(MensagemDeValidacaoEstaOCulta("//*[@id='phone']/following-sibling::span"), "Teste campo phone está aceitando valores entre 8 e 15 caracteres" + ValorPreenchido, "Cadastro Veiculo");

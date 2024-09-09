@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("B3POC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e61d7499ce2a30dcabe7e9c2140494dbb1f444d")]
 [assembly: System.Reflection.AssemblyProductAttribute("B3POC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("B3POC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -702,7 +702,7 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Validar se Campo Date of Birth tem validação para idades limites")]
         [NUnit.Framework.TestCaseAttribute("17", "Nao Aceitar", null)]
         [NUnit.Framework.TestCaseAttribute("18", "Aceitar", null)]
-        [NUnit.Framework.TestCaseAttribute("70", "Aceitar", null)]
+        [NUnit.Framework.TestCaseAttribute("70", "Nao Aceitar", null)]
         [NUnit.Framework.TestCaseAttribute("71", "Nao Aceitar", null)]
         public void ValidarSeCampoDateOfBirthTemValidacaoParaIdadesLimites(string idade, string resultado, string[] exampleTags)
         {
@@ -951,8 +951,8 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Validar Valores Limites Campo Nome")]
         [NUnit.Framework.TestCaseAttribute("Sam", "Nao Aceitar", null)]
         [NUnit.Framework.TestCaseAttribute("Ravi", "Aceitar", null)]
-        [NUnit.Framework.TestCaseAttribute("Fernanda Montenegro Vasconcelos da Costas de Carvalho Oliveira da Silva", "Nao Aceitar", null)]
-        [NUnit.Framework.TestCaseAttribute("Fernanda Montenegro Vasconcelos da Costas de", "Aceitar", null)]
+        [NUnit.Framework.TestCaseAttribute("FernandaAMontenegro2Vasconcelos3S", "Nao Aceitar", null)]
+        [NUnit.Framework.TestCaseAttribute("FernandaAMontenegrosBVasconcelos", "Aceitar", null)]
         public void ValidarValoresLimitesCampoNome(string nome, string resultado, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

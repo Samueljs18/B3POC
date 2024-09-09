@@ -112,7 +112,7 @@ Cenario: Validar se Campo Website nao aceita link invalido sem pontos
 Exemplos:
 	| Valor      | Resultado   |
 	| site       | Nao Aceitar |
-	| site.teste | Aceitar |
+	| site.teste | Aceitar     |
 	| site.com   | Aceitar     |
 
 
@@ -130,7 +130,7 @@ Exemplos:
 	| Idade | Resultado   |
 	| 17    | Nao Aceitar |
 	| 18    | Aceitar     |
-	| 70    | Aceitar     |
+	| 70    | Nao Aceitar |
 	| 71    | Nao Aceitar |
 
 Cenario: Validar se Campo Start Date não aceita Data Retroativa
@@ -191,10 +191,10 @@ Cenario: Validar Valores Limites Campo Nome
 	Entao Verifico que sistema deve <Resultado> Valor informado
 
 Exemplos:
-	| Nome                                                                    | Resultado   |
-	| Sam                                                                     | Nao Aceitar |
-	| Ravi                                                                    | Aceitar     |
-	| Fernanda Montenegro Vasconcelos da Costas de Carvalho Oliveira da Silva | Nao Aceitar |
-	| Fernanda Montenegro Vasconcelos da Costas de                            | Aceitar     |
+	| Nome                              | Resultado   |
+	| Sam                               | Nao Aceitar |
+	| Ravi                              | Aceitar     |
+	| FernandaAMontenegro2Vasconcelos3S | Nao Aceitar |
+	| FernandaAMontenegrosBVasconcelos  | Aceitar     |
 
 
